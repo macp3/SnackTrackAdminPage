@@ -9,7 +9,8 @@ import {
     MdWarning, 
     MdNotifications, 
     MdLogout, 
-    MdDirectionsRun 
+    MdDirectionsRun,
+    MdRestaurantMenu
 } from 'react-icons/md';
 import { useAuth } from '../context/AuthContext';
 
@@ -127,6 +128,7 @@ const Layout = () => {
                     <MenuItem to="/trainings"><MdFitnessCenter size={22}/> Trainings</MenuItem>
                     {/* Zakładka Exercises */}
                     <MenuItem to="/exercises"><MdDirectionsRun size={22}/> Exercises</MenuItem> 
+                    <MenuItem to="/meals"><MdRestaurantMenu size={22}/> Meals</MenuItem>
                     <MenuItem to="/reports"><MdWarning size={22}/> Reports</MenuItem>
                     <MenuItem to="/notifications"><MdNotifications size={22}/> Notifications</MenuItem>
                 </MenuList>

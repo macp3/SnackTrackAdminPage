@@ -13,6 +13,7 @@ import Layout from './components/Layout';
 import PrivateRoute from './components/PrivateRoute';
 import DashboardPage from './pages/DashboardPage';
 import ReportsPage from './pages/ReportsPage';
+import MealsPage from './pages/MealsPage';
 
 // Placeholdery dla stron, których jeszcze nie ma
 const DashboardPlaceholder = () => <h2 style={{color:'#1B5E20'}}>Dashboard (Statystyki wkrótce)</h2>;
@@ -51,6 +52,8 @@ function App() {
                   <Route path="/reports" element={<ReportsPage />} />
 
                   <Route path="/dashboard" element={<DashboardPage />} />
+
+                  <Route path="/meals" element={<MealsPage />} />
 
               </Route>
           </Route>
