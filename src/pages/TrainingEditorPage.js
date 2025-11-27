@@ -234,10 +234,13 @@ const TrainingEditorPage = () => {
         } else {
             // 🔴 LIVE: Wyślij do API
             const payload = {
-                trainingId: parseInt(id),
-                exerciseId: selectedExercise.id,
-                dayOfExercise: currentDay
-            };
+            treningInfo: {
+                name: trainingInfo.name,
+                description: trainingInfo.description,
+                duration: trainingInfo.durationTime 
+            },
+            trainingExercises: ExerciseList
+        };
             api.post('/admin/trainings/addExercise', payload)
                .then(res => {
                    setTrainingInfo(res.data.trainingInfo); // Update info if needed
