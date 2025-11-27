@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import api from '../api/axiosConfig';
+import api, { BASE_URL } from '../api/axiosConfig';
 import { MdSearch, MdDelete, MdRestaurant, MdImage, MdWarning } from 'react-icons/md';
 
 // ==========================================
@@ -215,7 +215,7 @@ const MealsPage = () => {
                     <MealCard key={meal.id}>
                         {meal.imageUrl ? (
                             <MealImage 
-                                src={`http://localhost:8080${meal.imageUrl}`} 
+                                src={`${BASE_URL}${meal.imageUrl}`}
                                 alt={meal.name}
                                 onError={(e) => {e.target.src='https://via.placeholder.com/400x200?text=No+Image'}}
                             />

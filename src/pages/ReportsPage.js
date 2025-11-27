@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import api from '../api/axiosConfig';
+import api, { BASE_URL } from '../api/axiosConfig';
 import { 
     MdRestaurant, MdComment, MdCheck, MdDelete, 
     MdPerson, MdDescription, MdDateRange, MdWarning, 
@@ -406,7 +406,7 @@ const ReportsPage = () => {
                                             {previewData.imageUrl ? (
                                                 <MealImage 
                                                     // Pamiętaj o poprawnym URL (jeśli backend jest na 8080)
-                                                    src={`http://localhost:8080${previewData.imageUrl}`} 
+                                                    src={`${BASE_URL}${previewData.imageUrl}`} 
                                                     alt={previewData.name} 
                                                     onError={(e) => {e.target.src='https://via.placeholder.com/400x200?text=No+Image'}}
                                                 />
