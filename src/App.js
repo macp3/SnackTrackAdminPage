@@ -24,16 +24,12 @@ function App() {
     <Router>
       <AuthProvider>
         <Routes>
-          {/* 1. Publiczna trasa - Logowanie (bez Layoutu) */}
           <Route path="/login" element={<LoginPage />} />
 
-          {/* 2. Prywatne trasy - wymagają logowania */}
           <Route element={<PrivateRoute />}>
               
-              {/* 🔥 KLUCZOWE: Wszystkie te strony są wewnątrz Layout */}
               <Route element={<Layout />}>
                   
-                  {/* Użytkownicy */}
                   <Route path="/users" element={<UsersPage />} />
                   
                   {/* Treningi - Lista */}

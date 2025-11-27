@@ -283,29 +283,24 @@ const ReportsPage = () => {
 
     const handleDeleteContent = (itemId, reportId) => {
         const itemType = activeTab === 'MEAL' ? 'Meal' : 'Comment';
-        if(!window.confirm(`⚠️ Delete this ${itemType} permanently?`)) return;
+        if(!window.confirm(`⚠️ WARNING: This will permanently delete the ${itemType} (ID: ${itemId}) from the database!`)) return;
 
         const deleteEndpoint = activeTab === 'MEAL'
             ? `/admin/meals/${itemId}/delete` 
-            : `/admin/comments/${itemId}/delete`; // Upewnij się że masz ten endpoint w AdminController
+            : `/admin/comments/${itemId}/delete`; 
 
         api.delete(deleteEndpoint)
            .then(() => {
-               // Jeśli otwarty jest podgląd tego elementu, zamknij go
+               
+               alert(`${itemType} deleted successfully.`);
+               
                if (showPreview && previewData && previewData.id === itemId) {
                    setShowPreview(false);
                }
-               // Usuń też raport
-               const reportEndpoint = activeTab === 'MEAL' 
-                    ? `/admin/reports/meals/${reportId}` 
-                    : `/admin/reports/comments/${reportId}`;
-               return api.delete(reportEndpoint);
-           })
-           .then(() => {
-               alert(`${itemType} deleted.`);
+
                setReports(prev => prev.filter(r => r.id !== reportId));
            })
-           .catch(err => alert("Error: " + (err.response?.data || err.message)));
+           .catch(err => alert("Error deleting content: " + (err.response?.data || err.message)));
     };
 
     return (
@@ -360,7 +355,6 @@ const ReportsPage = () => {
                             </InfoSection>
 
                             <ActionButtons>
-                                {/* 🔥 NOWY PRZYCISK PODGLĄDU */}
                                 <ActionButton 
                                     className="preview" 
                                     onClick={() => handlePreview(activeTab === 'MEAL' ? report.mealId : report.commentId)}
@@ -437,7 +431,6 @@ const ReportsPage = () => {
                                                 </div>
                                             </ContentRow>
 
-                                            {/* --- SKŁADNIKI (Dostosowane do Twojego DTO) --- */}
                                             <ContentRow>
                                                 <span className="label">Ingredients</span>
                                                 <div className="value">

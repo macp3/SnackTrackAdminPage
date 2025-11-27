@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-// Zakładam, że Twój backend stoi na porcie 8080
 const api = axios.create({
-    baseURL: 'http://localhost:8080',
+    baseURL: 'https://projekt-inzynierski-production.up.railway.app',
     headers: {
         'Content-Type': 'application/json',
     },
