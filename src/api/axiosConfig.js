@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-export const BASE_URL = 'https://snacktrack-backend-production.up.railway.app';
-
 const api = axios.create({
-    baseURL: BASE_URL,
+    baseURL: 'https://projekt-inzynierski-production.up.railway.app',
     headers: {
         'Content-Type': 'application/json',
     },
