@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+export const BASE_URL = 'https://snacktrack-backend-production.up.railway.app';
 
 const api = axios.create({
     baseURL: BASE_URL,
